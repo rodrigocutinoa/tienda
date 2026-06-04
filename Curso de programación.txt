@@ -1,0 +1,198 @@
+
+# Estructura del proyecto
+
+tienda/
+│
+├── data/                     ← Archivos de datos (JSON)
+│   └── productos.json
+│
+├── src/                      ← Código fuente
+│   ├── __init__.py
+│   ├── productos.py          ← Etapa 1: CRUD de productos
+│   └── persistencia.py       ← Etapa 2: Manejo de archivos
+│
+├── main.py                   ← Menú principal (punto de entrada)
+├── .gitignore
+├── README.md
+└── requirements.txt
+
+
+
+📅 Plan de 2 Semanas (30 min/día)
+
+Día Etapa           Tema                                Lo que aprenderás
+------------------------------------------------------------------------------------------------
+1   Preparación     Setup del proyecto + Git            Estructura, entorno virtual, .gitignore
+2   Etapa 1         Modelo de datos — Producto          Diccionarios, tipado básico
+3   Etapa 1         Agregar producto                    Funciones, validaciones
+4   Etapa 1         Modificar y Eliminar producto       Búsqueda en listas, mutabilidad
+5   Etapa 1         Imprimir productos + Menú           Formateo de salida, flujo de control
+6   Etapa 1         Revisión y Refactor                 Código limpio, nomenclatura
+
+7   Etapa 2         Guardar en JSON                     json, escritura de archivos
+8   Etapa 2         Cargar desde JSON                   Lectura, manejo de errores
+9   Etapa 2         Reporte en .txt                     Escritura de texto formateado
+10  Etapa 2         Revisión — integrar todo            Persistencia real en el menú
+
+11  Etapa 3         Modelo Inventario                   Relación producto↔stock
+12  Etapa 3         CRUD de Inventario                  Lógica de negocio
+13  Etapa 3         Reporte de inventario en archivo    Consolidar Etapa 2 + 3
+14  Cierre          Revisión final + README             Documentación, presentación
+
+
+
+
+🚀 DÍA 1 — Setup del Proyecto
+----------------------------
+Objetivo del día
+Tener el proyecto estructurado, el entorno virtual funcionando y el primer commit en Git.
+
+Paso 1 — Crea la estructura de carpetas
+Abre tu terminal y ejecuta:
+
+# 1. Crear carpeta raíz
+mkdir tienda
+cd tienda
+
+# 2. Crear subcarpetas
+mkdir data
+mkdir src
+
+# 3. Crear archivos vacíos iniciales
+touch main.py
+touch requirements.txt
+touch README.md
+touch src/__init__.py
+touch src/productos.py
+touch src/persistencia.py
+
+Resultado: Carpeta del proyecto con la estructura base creada ✅
+
+
+
+Paso 2 — Entorno Virtual
+------------------------
+
+# Crear entorno virtual
+python -m venv .venv
+# En Mac OS debes usar python3 -m venv .venv
+
+# Activarlo (Linux/Mac)
+source .venv/bin/activate
+
+# Activarlo (Windows)
+.venv\Scripts\activate
+
+# Verificar que está activo — debe mostrar la ruta del .venv
+which python
+
+💡 ¿Por qué un entorno virtual? Aísla las dependencias de tu proyecto.
+Es una práctica profesional desde el día 1. Cada proyecto tiene sus propias
+librerías sin contaminar otros.
+
+Resultado: Entorno virtual activo con Python 3.13.13 ✅
+
+
+
+Paso 3 — .gitignore
+-------------------
+Crea el archivo .gitignore con este contenido:
+
+# Crear el archivo .gitignore
+touch .gitignore
+
+## Copiar el siguiente contenido en el archivo .gitignore
+# Entorno virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Datos sensibles o generados
+data/*.json
+
+# Editor
+.vscode/
+.idea/
+
+Resultado: Archivo .gitignore creado con el contenido ✅
+
+
+----------------------------------------------
+📁 Estado actual del proyecto
+
+tienda/
+├── .venv/               ✅ creado e ignorado por Git
+├── data/                ✅ carpeta creada
+├── src/
+│   ├── __init__.py      ✅ creado
+│   ├── productos.py     ✅ creado
+│   └── persistencia.py  ✅ creado
+├── .gitignore           ✅ creado
+├── main.py              ✅ creado
+├── README.md            🔲 vacío, falta contenido
+└── requirements.txt     ✅ creado (vacío por ahora)
+
+💡 Hábito profesional — Este tipo de resumen se llama en el mundo real un progress log.
+Documentar lo que hiciste es tan importante como el código mismo.
+
+----------------------------------------------
+
+
+
+
+
+Paso 4 — README.md inicial
+--------------------------
+markdown# 🛒 Tienda — Proyecto de Aprendizaje Python
+
+Proyecto educativo para aprender Python aplicando
+conceptos de programación real: CRUD, archivos y estructuras limpias.
+
+## Etapas
+- [x] Etapa 1: Productos
+- [ ] Etapa 2: Manejo de archivos
+- [ ] Etapa 3: Inventario
+
+## Requisitos
+- Python 3.10+
+
+## Cómo ejecutar
+```bash
+python main.py
+```
+
+
+
+
+
+
+Paso 5 — Crear el README.md
+--------------------------
+¿Qué es un README.md?
+Es la primera página de tu proyecto. Cualquier persona que vea tu código entiende de qué trata,
+cómo instalarlo y cómo usarlo.
+
+💡 Regla profesional — Un proyecto sin README es un proyecto incompleto.
+GitHub lo muestra automáticamente como portada del repositorio.
+
+¿Qué es Markdown?
+El .md significa Markdown — es un lenguaje simple para dar formato a texto plano:
+
+# Título grande
+## Título mediano
+### Título pequeño
+
+**negrita**
+*cursiva*
+
+- elemento de lista
+- otro elemento
+
+Nota. No necesitas memorizarlo ahora, lo irás aprendiendo naturalmente.
+
+
+
+
