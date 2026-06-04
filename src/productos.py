@@ -7,7 +7,7 @@
 # --------------------------------------------------
 
 def crear_producto(id, nombre, precio, cantidad):
-        """
+    """
     Crea y retorna un producto como diccionario.
 
     Parámetros:
@@ -19,12 +19,12 @@ def crear_producto(id, nombre, precio, cantidad):
     Retorna:
         dict: Producto con sus atributos
     """
-        return {
-                "id": id,
-                "nombre": nombre,
-                "precio": precio,
-                "cantidad": cantidad
-                }
+    return {
+        "id": id,
+        "nombre": nombre,
+        "precio": precio,
+        "cantidad": cantidad
+    }
 
 
 # --------------------------------------------------
@@ -32,22 +32,23 @@ def crear_producto(id, nombre, precio, cantidad):
 # --------------------------------------------------
 
 def imprimir_producto(producto):
-        """Imprime un producto formateado en pantalla"""
-        print(f"  ID       : {producto["id"]}")
-        print(f"  Nombnre  : {producto["nombre"]}")
-        print(f"  Precio   : {producto["precio"]}")
-        print(f"  Cantiad  : {producto["cantidad"]}")
-        print(f" {"-" * 30}")
+    """Imprime un producto formateado en pantalla"""
+    print(f"  ID       : {producto['id']}")
+    print(f"  Nombre  : {producto['nombre']}")
+    print(f"  Precio   : ${producto['precio']:.2f}")
+    print(f"  Cantidad  : {producto['cantidad']}")
+    print(f" {'-' * 30}")
 
 
 def imprimir_lista(productos):
-        if not productos:
-            print("No hay productos registrados")
-            return
-        
-        print(f"\n {"-" * 30}")
-        print(f"  LISTA DE PRODUCTOS")
-        print(f" {"-" * 30}\n")
+    """Imprime todos los productos de la lista."""
+    if not productos:
+        print("No hay productos registrados")
+        return
+    
+    print(f"\n {'-' * 30}")
+    print(f"  LISTA DE PRODUCTOS")
+    print(f" {'-' * 30}\n")
 
-        for producto in productos:
-            imprimir_producto(producto)
+    for producto in productos:
+        imprimir_producto(producto)
