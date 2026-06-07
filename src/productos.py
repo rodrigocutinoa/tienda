@@ -33,22 +33,22 @@ def crear_producto(id, nombre, precio, cantidad):
 
 def imprimir_producto(producto):
     """Imprime un producto formateado en pantalla"""
-    print(f"  ID       : {producto['id']}")
-    print(f"  Nombre  : {producto['nombre']}")
-    print(f"  Precio   : ${producto['precio']:.2f}")
+    print(f"  ID        : {producto['id']}")
+    print(f"  Nombre    : {producto['nombre']}")
+    print(f"  Precio    : ${producto['precio']:.2f}")
     print(f"  Cantidad  : {producto['cantidad']:.1f}")
-    print(f" {'-' * 30}")
+    print(f"  {'-' * 30}")
 
 
 def imprimir_lista(productos):
     """Imprime todos los productos de la lista."""
     if not productos:
-        print("No hay productos registrados")
+        print("  No hay productos registrados")
         return
     
-    print(f"\n {'-' * 30}")
+    print(f"\n  {'-' * 30}")
     print(f"  LISTA DE PRODUCTOS")
-    print(f" {'-' * 30}\n")
+    print(f"  {'-' * 30}\n")
 
     for producto in productos:
         imprimir_producto(producto)
@@ -113,7 +113,7 @@ def agregar_producto(productos):
     """
     print(f"\n {'-' * 30}")
     print("  AGREGAR NUEVO PRODUCTO")
-    print(f" {'-' * 30}\n")
+    print(f"  {'-' * 30}\n")
 
     # -- Nombre --
     nombre = input("  Nombre del producto: ").strip()
@@ -189,9 +189,9 @@ def modificar_producto(productos):
     Retorna:
         list: Lista actualizada con el producto modificado
     """
-    print(f"\n {'-' * 30}")
+    print(f"\n  {'-' * 30}")
     print("  MODIFICAR PRODUCTOS")
-    print(f" {'-' * 30} \n")
+    print(f"  {'-' * 30} \n")
 
     # imprimir_lista(productos)
 
@@ -212,7 +212,7 @@ def modificar_producto(productos):
 
 
 # -- Nuevo nombre --
-    nombre = input(" Nuevo nombre del producto: ").strip()
+    nombre = input("  Nuevo nombre del producto: ").strip()
     if nombre and validar_nombre(nombre):
         producto['nombre'] = nombre
 
@@ -231,7 +231,7 @@ def modificar_producto(productos):
 
 
 # -- Nueva cantidad --
-    cantidad_input = input("  Nueva cantidad (Enter para mantener").strip()
+    cantidad_input = input("  Nueva cantidad (Enter para mantener: ").strip()
     if cantidad_input:
         try:
             cantidad = float(cantidad_input)
@@ -260,9 +260,9 @@ def eliminar_producto(productos):
     Retorna:
         list: Lista actualizada sin el producto eliminado
     """
-    print(f"\n {'-' * 30}")
+    print(f"\n  {'-' * 30}")
     print("  ELIMINAR PRODUCTO")
-    print(f" {'-' * 30 }\n")
+    print(f"  {'-' * 30 }\n")
 
     try:
         id = int(input("  ID del producto a eliminar: "))
@@ -279,10 +279,10 @@ def eliminar_producto(productos):
     print(f"  Producto encontrado")
     imprimir_producto(producto)
 
-    confirmacion = input(f" ¿Confirma eliminar? (s/n): ").strip().lower()
+    confirmacion = input(f"  ¿Confirma eliminar? (s/n): ").strip().lower()
     if confirmacion == "s":
         productos.remove(producto)
-        print(f" ✅ Producto con ID {id} eliminado correctamente.")
+        print(f"  ✅ Producto con ID {id} eliminado correctamente.")
     else:
         print(f"  ⚠️ Operación cancelada.")
         return productos

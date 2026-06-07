@@ -31,16 +31,24 @@ from src.productos import (
 
 # --- Datos de prueba ---
 
+# Lista de productos en memoria
 productos = []
 
+# --- Datos de prueba ---
 productos.append(crear_producto(1, "Leche", 1500.0, 10.0))
 productos.append(crear_producto(2, "Pan", 800.0, 25.0))
 productos.append(crear_producto(3, "Agua", 500.0, 50.0))
 
+# -- Imprimri lista antes de modificar --
+print(f"\n  == LISTA INICIAL ==")
+imprimir_lista(productos)
+
 # --- Prueba Modificar ---
 productos = modificar_producto(productos)
+print("\n  === LISTA DESPUÉS DE MODIFICAR ===")
 imprimir_lista(productos)
 
 # -- Prueba Eliminar ---
 productos = eliminar_producto(productos)
+print("\n  === LISTA DESPUÉS DE ELIMINAR ===")
 imprimir_lista(productos)
