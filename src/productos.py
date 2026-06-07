@@ -283,8 +283,9 @@ def eliminar_producto(productos):
     if confirmacion == "s":
         productos.remove(producto)
         print(f"  ✅ Producto con ID {id} eliminado correctamente.")
+
     else:
         print(f"  ⚠️ Operación cancelada.")
-        return productos
+    return productos
 
     
