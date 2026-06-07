@@ -152,3 +152,139 @@ def agregar_producto(productos):
     print(f"  ✅ Producto {producto} agregado con ID {id_nuevo}.")
     return productos
     
+
+
+# --------------------------------------------------
+# BUSCAR PRODUCTO
+# --------------------------------------------------
+
+def buscar_producto(productos, id):
+    """
+    Busca un producto por ID en la lista.
+
+    Parámetros:
+        productos (list): Lista de productos
+        id        (int) : ID del producto a buscar
+
+    Retorna:
+        dict: Producto encontrado o None si no existe
+    """
+    for producto in productos:
+        if producto["id"] == id:
+            return producto
+    return None
+
+
+# --------------------------------------------------
+# MODIFICAR PRODUCTO
+# --------------------------------------------------
+
+def modificar_producto(productos):
+    """
+    Solicita un ID y modifica los datos del producto encontrado.
+
+    Parámetros:
+        productos (list): Lista actual de productos
+
+    Retorna:
+        list: Lista actualizada con el producto modificado
+    """
+    print(f"\n {'-' * 30}")
+    print("  MODIFICAR PRODUCTOS")
+    print(f" {'-' * 30} \n")
+
+    # imprimir_lista(productos)
+
+    try:
+        id = int(input("  ID del producto a modificar: "))
+    except ValueError:
+        print("  ❌ El ID debe ser un número entero.")
+        return productos
+
+    producto = buscar_producto(productos, id)
+    if productos is None:
+        print(f"  ❌ No se encontró un producto con ID {id}.")
+        return productos
+
+
+    print(f"  Producto encontrado:")
+    imprimir_producto(producto)
+
+
+# -- Nuevo nombre --
+    nombre = input(" Nuevo nombre del producto: ").strip()
+    if nombre and validar_nombre(nombre):
+        producto['nombre'] = nombre
+
+
+# -- Nuevo precio --
+    precio_input = input("  Nuevo precio (Enter para mantener): ").strip()
+    if precio_input:
+        try:
+            precio = float(precio_input)
+            if validar_precio(precio):
+                producto['precio'] = precio
+            else:
+                print('  ⚠️ Precio inválido, se mantiene el anterior')
+        except ValueError:
+            print(' ⚠️ Precio inválido, se mantiene el anterior.')
+
+
+# -- Nueva cantidad --
+    cantidad_input = input("  Nueva cantidad (Enter para mantener").strip()
+    if cantidad_input:
+        try:
+            cantidad = float(cantidad_input)
+            if validar_cantidad(cantidad):
+                producto['cantidad'] = cantidad
+            else:
+                print(f" ⚠️ Cantidad inválida, se mantiene la anterior.")
+        except ValueError:
+            print("  ⚠️ Cantidad inválida, se mantiene la anterior.")
+
+    print(f"\n  ✅ Producto con ID {id} modificado correctamente.")
+    return productos
+
+
+# --------------------------------------------------
+# ELIMINAR PRODUCTO
+# --------------------------------------------------
+
+def eliminar_producto(productos):
+    """
+    Solicita un ID y elimina el producto correspondiente.
+
+    Parámetros:
+        productos (list): Lista actual de productos
+
+    Retorna:
+        list: Lista actualizada sin el producto eliminado
+    """
+    print(f"\n {'-' * 30}")
+    print("  ELIMINAR PRODUCTO")
+    print(f" {'-' * 30 }\n")
+
+    try:
+        id = int(input("  ID del producto a eliminar: "))
+    except ValueError:
+        print("  ❌ El ID debe ser un número entero.")
+        return productos
+
+    producto = buscar_producto(productos, id)
+
+    if producto is None:
+        print(f"  ❌ No existe un producto con ID {id}.")
+        return productos
+
+    print(f"  Producto encontrado")
+    imprimir_producto(producto)
+
+    confirmacion = input(f" ¿Confirma eliminar? (s/n): ").strip().lower()
+    if confirmacion == "s":
+        productos.remove(producto)
+        print(f" ✅ Producto con ID {id} eliminado correctamente.")
+    else:
+        print(f"  ⚠️ Operación cancelada.")
+        return productos
+
+    
