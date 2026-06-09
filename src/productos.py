@@ -111,7 +111,7 @@ def agregar_producto(productos):
     Retorna:
         list: Lista actualizada con el nuevo producto
     """
-    print(f"\n {'-' * 30}")
+    print(f"\n  {'-' * 30}")
     print("  AGREGAR NUEVO PRODUCTO")
     print(f"  {'-' * 30}\n")
 
@@ -149,7 +149,7 @@ def agregar_producto(productos):
     producto = crear_producto(id_nuevo, nombre, precio, cantidad)
     productos.append(producto)
 
-    print(f"  ✅ Producto {producto} agregado con ID {id_nuevo}.")
+    print(f"  ✅ Producto '{nombre}' agregado con ID {id_nuevo}.")
     return productos
     
 
@@ -191,9 +191,7 @@ def modificar_producto(productos):
     """
     print(f"\n  {'-' * 30}")
     print("  MODIFICAR PRODUCTOS")
-    print(f"  {'-' * 30} \n")
-
-    # imprimir_lista(productos)
+    print(f"  {'-' * 30}\n")
 
     try:
         id = int(input("  ID del producto a modificar: "))
@@ -202,7 +200,7 @@ def modificar_producto(productos):
         return productos
 
     producto = buscar_producto(productos, id)
-    if productos is None:
+    if producto is None:
         print(f"  ❌ No se encontró un producto con ID {id}.")
         return productos
 
@@ -211,13 +209,13 @@ def modificar_producto(productos):
     imprimir_producto(producto)
 
 
-# -- Nuevo nombre --
+    # -- Nuevo nombre --
     nombre = input("  Nuevo nombre del producto: ").strip()
     if nombre and validar_nombre(nombre):
         producto['nombre'] = nombre
 
 
-# -- Nuevo precio --
+    # -- Nuevo precio --
     precio_input = input("  Nuevo precio (Enter para mantener): ").strip()
     if precio_input:
         try:
@@ -227,10 +225,10 @@ def modificar_producto(productos):
             else:
                 print('  ⚠️ Precio inválido, se mantiene el anterior')
         except ValueError:
-            print(' ⚠️ Precio inválido, se mantiene el anterior.')
+            print('  ⚠️ Precio inválido, se mantiene el anterior.')
 
 
-# -- Nueva cantidad --
+    # -- Nueva cantidad --
     cantidad_input = input("  Nueva cantidad (Enter para mantener: ").strip()
     if cantidad_input:
         try:
@@ -238,7 +236,7 @@ def modificar_producto(productos):
             if validar_cantidad(cantidad):
                 producto['cantidad'] = cantidad
             else:
-                print(f" ⚠️ Cantidad inválida, se mantiene la anterior.")
+                print(f"  ⚠️ Cantidad inválida, se mantiene la anterior.")
         except ValueError:
             print("  ⚠️ Cantidad inválida, se mantiene la anterior.")
 
@@ -262,7 +260,7 @@ def eliminar_producto(productos):
     """
     print(f"\n  {'-' * 30}")
     print("  ELIMINAR PRODUCTO")
-    print(f"  {'-' * 30 }\n")
+    print(f"  {'-' * 30}\n")
 
     try:
         id = int(input("  ID del producto a eliminar: "))

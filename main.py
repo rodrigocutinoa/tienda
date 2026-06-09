@@ -57,18 +57,21 @@
 # ----------------------------------------------------------
 
 from src.productos import (
-    crear_producto,
     agregar_producto,
     modificar_producto,
     eliminar_producto,
     imprimir_lista
 )
 
+from src.persistencia import guardar_productos
+
+
 # --------------------------------------------------
 # MENÚ
 # --------------------------------------------------
 
 def mostrar_menu():
+    """Imprime las opciones del menú principal."""
     print(f"\n  {'-' * 30}")
     print(f"  TIENDA — MENÚ PRINCIPAL")
     print(f"  {'-' * 30}\n")
@@ -76,6 +79,7 @@ def mostrar_menu():
     print(f"  2. Agregar producto")
     print(f"  3. Modificar producto")
     print(f"  4. Eliminar producto")
+    print(f"  5. Guardar productos")
     print(f"  0. Salir")
     print(f"  {'=' * 30}")
 
@@ -102,6 +106,9 @@ def ejecutar_opcion(opcion, productos):
 
     elif opcion == "4":
         productos = eliminar_producto(productos)
+
+    elif opcion == "5":
+        productos = guardar_productos(productos)
 
     elif opcion == "0":
         print("\n  👋 Hasta luego!\n")
