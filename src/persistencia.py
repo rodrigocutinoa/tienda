@@ -39,8 +39,8 @@ def guardar_productos(productos):
             # ensure_ascii=False permite guardar tildes y ñ correctamente
             json.dump(productos, archivo, indent=4, ensure_ascii=False)
 
-            print(f"  ✅ Productos guardados correctamente.")
-            return True
+        print(f"  ✅ Productos guardados correctamente.")
+        return True
 
     except Exception as error:
         # Si algo falla, muestra el error sin romper el programa
