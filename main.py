@@ -63,7 +63,10 @@ from src.productos import (
     imprimir_lista
 )
 
-from src.persistencia import guardar_productos
+from src.persistencia import (
+    guardar_productos,
+    cargar_productos
+)
 
 
 # --------------------------------------------------
@@ -125,7 +128,15 @@ def ejecutar_opcion(opcion, productos):
 
 def main():
     """Función principal — inicia el programa."""
-    productos = []
+    # Inia la lista de productos vacia
+    # productos = []
+
+    # Carga los productos desde el archivo JSON al iniciar
+    print(f"\n {"-" * 30}")
+    print(f"  TIENDA - INICIANDO")
+    print(f" {"-" * 30}\n")
+    productos = cargar_productos()
+
     
     while True:
         mostrar_menu()

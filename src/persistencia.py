@@ -46,3 +46,38 @@ def guardar_productos(productos):
         # Si algo falla, muestra el error sin romper el programa
         print(f"  ❌ Error al guardar productos: {error}")
         return False
+
+
+# --------------------------------------------------
+# CARGAR PRODUCTOS
+# --------------------------------------------------
+
+def cargar_productos():
+    """
+    Carga la lista de productos desde el archivo JSON.
+
+    Retorna:
+        list: Lista de productos cargados,
+              lista vacía si el archivo no existe o hay error
+    """
+    try:
+        # Verifica si el archivo existe antes de abrirlo
+        # Evita el error si es la primera vez que se ejecuta el programa
+        if not os.path.exists(RUTA_PRODUCTOS):
+            print(" ℹ️  No se encontró archivo de productos.")
+            print(" ℹ️  Iniciando con lista vacía.")
+            return []
+        
+        # Abre el archivo en modo lectura ("r")
+        with open(RUTA_PRODUCTOS, "r", encoding="utf-8") as archivo:
+
+            # Convierte el JSON del archivo a lista de diccionarios
+            productos = json.load(archivo)
+
+        print(f"  ✅ {len(productos)} Producto(s) cargado(s) correctamente")
+        return productos
+    
+    except Exception as error:
+        # Si algo falla, inicia con lista vacía sin romper el programa
+        print(f"  ❌ Error al cargar productos: {error}")
+        return []
